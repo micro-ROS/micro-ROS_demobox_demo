@@ -14,17 +14,12 @@ sudo ip link add link wpan0 name lowpan0 type lowpan
 sudo ip link set wpan0 up
 sudo ip link set lowpan0 up
 
-sudo ip -6 route delete fe80::/64 dev wlan0 proto kernel metric 256 pref medium
-sudo ip -6 route delete fe80::/64 dev eth0 proto kernel metric 256 pref me
-
 # ifconfig wpan0 up
 # ifconfig lowpan0 up
-
 # iwpan dev wpan0 info
 
-# lowpan neighborgh and route configuration
-
 # ATUSB node
+# lowpan neighborgh and route configuration
 SERVER_DEV=lowpan0
 SERVER_IPV6=fe80::12e2:d5ff:ff00:1fa
 echo "SERVER      - $SERVER_IPV6 $SERVER_DEV"
