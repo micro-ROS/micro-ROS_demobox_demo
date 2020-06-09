@@ -1,0 +1,80 @@
+function up_reprioritize_rtr
+ - context switching		
+    file /NuttX/arch/arm/src/arm/up_reprioritizertr.c
+    - line 123
+
+called in functions:
+ - sched_roundrobin_process 
+     file /NuttX/sched/sched/sched_roundrobin.c
+     - line 163
+
+ - nxsched_running_setpriority, nxsched_readytorun_setpriority  
+     file /NuttX/sched/sched/sched_setpriority.c
+     - line 161, 241
+
+
+function  up_release_pending		
+ - high likelihood of task switching
+    file /NuttX/arch/arm/src/arm/up_releasepending.c
+    - line 75
+
+called in functions:
+ - leave_critical_section
+     file /NuttX/sched/irq/irq_csection.c
+     - line 563
+ 	- high likelihood of task switching
+
+ - sched_unlock
+     file /NuttX/sched/sched/sched_unlock.c
+     - line 157, 288, 
+
+----------------------------
+----------------------------
+function sched_roundrobin_process
+ - check time slice of the current task
+
+called in functions:
+ - nxsched_cpu_scheduler
+     file ,/NuttX/sched/sched/sched_processtimer
+     - line 90
+
+ - nxsched_cpu_scheduler
+     file ,/NuttX/sched/sched/sched_timerexpiration.c
+     - line 203
+---------------------------
+
+function nxsched_process_timer
+ - function handles system timer events
+     file /NuttX/sched/sched/sched_processtimer.c
+     - line 90
+---------------------------
+
+function nxsched_process_scheduler
+ - check for operations of the currently active task on CPUs
+     file /NuttX/sched/sched/sched_processtimer.c
+
+called in functions:
+ - nxsched_process_timer 
+     file /NuttX/sched/sched/sched_processtimer.c
+     - line 224
+
+---
+
+function nxsched_cpu_scheduler
+ - check for operations of the currently active task the CPUs
+     file /NuttX/sched/sched/sched_processtimer.c
+
+called in functions:
+ - nxsched_process_scheduler 
+     file /NuttX/sched/sched/sched_processtimer.c
+     - line 145, 153
+-----------------------------
+
+called in functions:
+??
+ - nxsched_cpu_scheduler, nxsched_timer_process
+     file /NuttX/sched/sched/sched_timerexpiration.c
+     - line 246, 373, 311, 324
+----------------------------------------------------------
+
+
