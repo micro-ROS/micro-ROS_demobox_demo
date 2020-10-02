@@ -28,7 +28,6 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(demo_msgs
   "msg/DemoDistance.msg"
   "msg/DemoPower.msg"
-  "msg/DemoHih6130.msg"
   DEPENDENCIES std_msgs builtin_interfaces
 )
 
