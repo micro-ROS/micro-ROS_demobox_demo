@@ -109,9 +109,9 @@ source install/local_setup.bas
 ```
 ros2 run micro_ros_setup create_firmware_ws.sh nuttx olimex-stm32-e407
 cd firmware/NuttX
-git checkout -t origin/ucs_demo_f
+git checkout -t origin/foxy
 cd ../apps
-git checkout -t origin/ucs_demo_f
+git checkout -t origin/master
 cd ..
 ```
 Build an flash the firmware:
