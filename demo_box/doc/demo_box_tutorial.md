@@ -1,6 +1,6 @@
 # Micro-ROS Power and Distance Sensors Demo
 
-This demo illustrates micro-ROS capabilities and showcases the integration of micro-ROS with  ROS 2 tools. Besides, it enables the comparison of micro-ROS and ROS 2 outcomes.
+This demo illustrates the micro-ROS capabilities and showcases the integration of micro-ROS with ROS 2 tools. Besides, it enables the comparison of micro-ROS and ROS 2 outcomes.
 
 The use-case consists in a ROS2-controlled [Raspberry Pi 4](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/?resellerType=home) with a [TFMini](https://www.sparkfun.com/products/14588) sensor that measures the <span style="color:magenta">distance</span> to a target object and a micro-ROS-controlled [Olimex STM32-E407](https://www.olimex.com/Products/ARM/ST/STM32-E407/open-source-hardware) board with the similar TFMini sensor, which measures the <span style="color:magenta"> distance</span> to the same object. The demo explores another micro-ROS-controlled Olimex STM32-E407 board, which measures the <span style="color:magenta">power consumption</span> of both Raspberry Pi 4 and Olimex STM32-E407 boards for distance measurements, using [INA219](https://www.antratek.com/ina-219-dc-current-sensor) sensors. The last component, a tablet display, visualizes measurement results using standard ROS 2 tools (rqt).
 
@@ -86,7 +86,7 @@ The following is a list of the demo hardware:
 
 
 ## How to build the micro-ROS demo system on Olimex STM32-E407 
-Use a PC workstation with the Docker installation to prepare the environment for setting up Demo Box applications in a docker container:
+The environment for setting up the Demo Box applications will be perform within a docker:
 - Download the micro-ROS base Foxy image from  [the Docker Hub](https://hub.docker.com/), then run a docker container
 
 ```
@@ -105,7 +105,7 @@ apt-get -y install python3-pip
 colcon build
 source install/local_setup.bas
 ```
-- Create the Nuttx firmware on Olimex-E407 with Demo Box sensor applications
+- Create the Nuttx firmware on Olimex-E407 with the Demo Box sensor applications
 ```
 ros2 run micro_ros_setup create_firmware_ws.sh nuttx olimex-stm32-e407
 cd firmware/NuttX
@@ -115,15 +115,10 @@ git checkout -t origin/ucs_demo_f
 cd ..
 ```
 Build an flash the firmware:
-- Set the config profile variable to select the demo distance or demo power application
+- Set the configuration profile variable to select the demo distance or demo power application
 
 ```
 CFG_PROFILE=demo_distance_romfs
-```
-or
-
-```
-CFG_PROFILE=demo_power_romfs
 ```
 
 - Build the application
@@ -135,13 +130,19 @@ cd firmware/apps/nshlib/
 ../../NuttX/tools/mkromfsimg.sh -nofat ../../NuttX/
 cd /uros_ws/
 ros2 run micro_ros_setup build_firmware.sh
-ros2 run micro_ros_setup flash_firmware.sh
 ```
 - Connect ST-Link/V2 to  Olimex STM32-E407 JTAG interface and flash the firmware
 
 ```
 ros2 run micro_ros_setup flash_firmware.sh
 ```
+
+- Repeat the procedure _Build the application_ with the Olimex used for monitoring the current consumption but before, the configuration needs to be changed as follow:
+
+```
+CFG_PROFILE=demo_power_romfs
+```
+
 
 ## How to build the ROS 2 demo system on a tablet
 
@@ -209,7 +210,7 @@ sudo apt install ros-foxy-ros-base
 sudo apt install python3-colcon-common-extensions
 ```
 
-- Install ROS 2 Demo Box packeges
+- Install ROS 2 Demo Box packages
 
 ```
 cd ~/
@@ -232,7 +233,7 @@ network:
     version: 2
 ```
 
-- Switch off serial console adjusting the /boot/firmware/cmdline.txt file
+- Switch off the serial console by adjusting the /boot/firmware/cmdline.txt file
 
 ```
 net.ifnames=0 dwc_otg.lpm_enable=0 root=LABEL=writable rootfstype=ext4 elevator=deadline rootwait fixrtc
