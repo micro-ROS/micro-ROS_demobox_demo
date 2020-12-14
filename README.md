@@ -19,7 +19,7 @@ Raspberry Pi 4 is running Linux and a ROS 2 application, while Olimex STM32-E407
 
 
 ## Demo Box diagram
-![Demo_Box](images/demo_box.png)
+![Demo_Box](https://raw.githubusercontent.com/micro-ROS/micro-ROS_demobox_demo/master/images/demo_box.png)
 
 ## Topics
 In this demo there are two different micro-ROS nodes and the ROS 2 node  which publish the following topics:
@@ -258,7 +258,7 @@ Connect the devices via an Ethernet switch and power them on, then  run the comm
 
 After some time  two rqt windows should appear with sensors data histograms.
 
-![Demo_Screenshot](images/demo_screenshot.png)
+![Demo_Screenshot](https://raw.githubusercontent.com/micro-ROS/micro-ROS_demobox_demo/master/images/demo_box.png)
 
 
 ## License
