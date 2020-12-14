@@ -258,7 +258,7 @@ Connect the devices via an Ethernet switch and power them on, then  run the comm
 
 After some time  two rqt windows should appear with sensors data histograms.
 
-![Demo_Screenshot](https://github.com/micro-ROS/micro-ROS_demobox_demo/blob/master/images/demo_screenshot.png)
+![Demo_Screenshot](https://raw.githubusercontent.com/micro-ROS/micro-ROS_demobox_demo/master/images/demo_screenshot.png)
 
 
 ## License
@@ -266,7 +266,7 @@ After some time  two rqt windows should appear with sensors data histograms.
 This repository is open-sourced under the Apache-2.0 license. See the LICENSE file for details.
 
 For a list of other open-source components included in this repository, see the
-file [3rd-party-licenses.txt](./3rd-party-licenses.md)
+file [3rd-party-licenses.txt](https://raw.githubusercontent.com/micro-ROS/micro-ROS_demobox_demo/master/3rd-party-licenses.md)
 
 ## Known Issues/Limitations
 
