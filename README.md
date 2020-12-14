@@ -258,7 +258,7 @@ Connect the devices via an Ethernet switch and power them on, then  run the comm
 
 After some time  two rqt windows should appear with sensors data histograms.
 
-![Demo_Screenshot](https://raw.githubusercontent.com/micro-ROS/micro-ROS_demobox_demo/master/images/demo_box.png)
+![Demo_Screenshot](https://github.com/micro-ROS/micro-ROS_demobox_demo/blob/master/images/demo_screenshot.png)
 
 
 ## License
